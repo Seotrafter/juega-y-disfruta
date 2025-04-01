@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leyendas del Ocaso - AFK Heroes: Idle RPG Legends</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#162b29',
+                        secondary: '#216a61',
+                        tertiary: '#fbda57',
+                        accent: '#f8bd9e',
+                        light: '#ffffff'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-10px)'
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .wave-bg {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23216a61' fill-opacity='0.5' d='M0,96L48,106.7C96,117,192,139,288,144C384,149,480,139,576,122.7C672,107,768,85,864,90.7C960,96,1056,128,1152,138.7C1248,149,1344,139,1392,133.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .btn-custom {
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        .custom-shape {
+            clip-path: polygon(0 15%, 15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-primary shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex flex-wrap items-center justify-between">
+                <!-- Logo y Nombre -->
+                <a href="/" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center overflow-hidden animate-float">
+                        <span class="text-primary text-2xl font-black">LO</span>
+                    </div>
+                    <span class="text-light text-xl md:text-2xl font-bold">Leyendas del Ocaso</span>
+                </a>
+
+                <!-- Botón móvil -->
+                <div class="lg:hidden">
+                    <button id="menu-btn" class="text-light hover:text-tertiary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Menú de navegación -->
+                <div id="menu" class="hidden w-full lg:flex lg:w-auto lg:items-center mt-4 lg:mt-0">
+                    <ul class="flex flex-col lg:flex-row lg:space-x-8 space-y-3 lg:space-y-0">
+                        <li><a href="/#inicio" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Inicio</a></li>
+                        <li><a href="/#heroes" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Héroes</a></li>
+                        <li><a href="/#caracteristicas" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Características</a></li>
+                        <li><a href="/#alianzas" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Alianzas</a></li>
+                        <li><a href="/#comunidad" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Comunidad</a></li>
+                        <li>
+                            <a href="/#descargar" class="btn-custom inline-block px-6 py-2 bg-tertiary text-primary font-bold hover:bg-accent transition duration-300 ease-in-out">
+                                DESCARGAR
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section - Política de Privacidad -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-primary to-secondary py-20">
+        <div class="absolute top-0 left-0 w-full h-full opacity-20">
+            <div class="absolute animate-pulse-slow w-64 h-64 rounded-full bg-tertiary top-1/4 left-1/4 blur-3xl"></div>
+            <div class="absolute animate-pulse-slow w-96 h-96 rounded-full bg-accent top-1/2 right-1/4 blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10  mb-32">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-6xl font-black text-light">
+                    <span class="text-tertiary">POLÍTICA DE</span> PRIVACIDAD
+                </h1>
+                <p class="text-xl text-light max-w-3xl mx-auto">
+                    Tu privacidad es importante para nosotros. Conoce cómo recopilamos y utilizamos tu información.
+                </p>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,128L48,117.3C96,107,192,85,288,90.7C384,96,480,128,576,149.3C672,171,768,181,864,165.3C960,149,1056,107,1152,96C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Introducción -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Política de Privacidad de Leyendas del Ocaso</h2>
+
+                <p class="text-secondary mb-6">
+                    En Leyendas del Ocaso, accesible desde <a href="https://juega-y-disfruta.com/" class="text-tertiary hover:text-accent font-semibold">https://juega-y-disfruta.com/</a>, una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento de Política de Privacidad contiene los tipos de información que se recopilan y registran en Leyendas del Ocaso y cómo la utilizamos.
+                </p>
+
+                <p class="text-secondary mb-6">
+                    Si tienes preguntas adicionales o necesitas más información sobre nuestra Política de Privacidad, no dudes en contactarnos.
+                </p>
+
+                <div class="bg-tertiary/10 border-l-4 border-tertiary p-4 rounded-r-lg mb-8">
+                    <p class="text-primary font-medium">
+                        <i class="fas fa-info-circle text-tertiary mr-2"></i>
+                        Esta política se aplica únicamente a nuestras actividades en línea y es válida para los visitantes de nuestro sitio web en relación con la información que han compartido y/o que hemos recopilado.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Archivos de Registro</h2>
+
+                <p class="text-secondary mb-6">
+                    Leyendas del Ocaso sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando acceden al sitio web. Todos los servicios de alojamiento hacen esto como parte del análisis de datos de hosting.
+                </p>
+
+                <div class="bg-gradient-to-r from-primary/5 to-secondary/10 rounded-xl p-6 mb-6">
+                    <h3 class="text-xl font-bold text-primary mb-4">Información recopilada en los archivos de registro:</h3>
+
+                    <ul class="list-inside space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                            <span class="text-secondary">Direcciones IP (protocolo de internet)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                            <span class="text-secondary">Tipo de navegador</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                            <span class="text-secondary">Proveedor de servicios de internet (ISP)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                            <span class="text-secondary">Fecha y hora de acceso</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                            <span class="text-secondary">Páginas de referencia/salida</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                            <span class="text-secondary">Posiblemente, el número de clics</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="text-secondary mb-6">
+                    Estos datos no están vinculados a ninguna información personal identificable. El propósito de esta información es analizar tendencias, administrar el sitio, rastrear el movimiento de los usuarios en la web y recopilar información demográfica.
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Cookies y Balizas Web</h2>
+
+                <p class="text-secondary mb-6">
+                    Al igual que otros sitios web, Leyendas del Ocaso utiliza "cookies". Estas cookies se emplean para almacenar información, incluidas las preferencias de los visitantes y las páginas del sitio web a las que acceden o visitan. La información se usa para optimizar la experiencia de los usuarios personalizando el contenido del sitio web según el tipo de navegador y/u otra información.
+                </p>
+
+                <p class="text-secondary mb-6">
+                    Para más información sobre cookies, puedes leer el artículo ¿Qué son las cookies? del Generador de Políticas de Privacidad.
+                </p>
+
+                <div class="bg-accent/10 rounded-xl p-6 mb-6">
+                    <h3 class="text-xl font-bold text-primary mb-4">Cookie DART de Google DoubleClick</h3>
+
+                    <p class="text-secondary mb-4">
+                        Google es uno de los proveedores externos en nuestro sitio. Utiliza cookies, conocidas como cookies DART, para mostrar anuncios a nuestros visitantes en función de su visita a <a href="https://juega-y-disfruta.com/" class="text-tertiary hover:text-accent font-semibold">https://juega-y-disfruta.com/</a> y otros sitios en internet.
+                    </p>
+
+                    <p class="text-secondary">
+                        Sin embargo, los visitantes pueden optar por rechazar el uso de las cookies DART visitando la Política de Privacidad de la red de anuncios y contenido de Google en el siguiente enlace: <a href="https://policies.google.com/technologies/ads" class="text-tertiary hover:text-accent font-semibold" style="word-wrap: break-word;">https://policies.google.com/technologies/ads</a>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Nuestros Socios Publicitarios</h2>
+
+                <p class="text-secondary mb-6">
+                    Algunos de los anunciantes en nuestro sitio pueden utilizar cookies y balizas web. A continuación, se enumeran nuestros socios publicitarios. Cada uno de ellos tiene su propia Política de Privacidad con sus respectivas prácticas sobre el manejo de datos de usuarios. Para facilitar el acceso, hemos incluido enlaces a sus respectivas políticas:
+                </p>
+
+                <div class="flex items-center p-4 bg-gradient-to-r from-primary/5 to-secondary/10 rounded-xl mb-6">
+                    <div class="bg-white p-3 rounded-full mr-4">
+                        <i class="fab fa-google text-2xl text-primary"></i>
+                    </div>
+                    <div style="word-wrap: break-word;">
+                        <h4 class=" font-bold text-primary">Google</h4>
+                        <a href="https://policies.google.com/technologies/ads" class="text-tertiary hover:text-accent font-semibold " style="word-wrap: break-word;">https://policies.google.com/technologies/ads</a>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-primary mb-4">Políticas de Privacidad de Terceros</h3>
+
+                <p class="text-secondary mb-6">
+                    Puedes consultar esta lista para encontrar la Política de Privacidad de cada uno de los socios publicitarios de Leyendas del Ocaso.
+                </p>
+
+                <p class="text-secondary mb-6">
+                    Los servidores de anuncios o redes publicitarias de terceros utilizan tecnologías como cookies, JavaScript o balizas web en sus anuncios y enlaces que aparecen en Leyendas del Ocaso, y que se envían directamente al navegador de los usuarios. Cuando esto ocurre, reciben automáticamente tu dirección IP. Estas tecnologías se utilizan para medir la efectividad de sus campañas publicitarias y/o para personalizar el contenido publicitario que ves en otros sitios web.
+                </p>
+
+                <div class="bg-tertiary/10 border-l-4 border-tertiary p-4 rounded-r-lg mb-6">
+                    <p class="text-primary font-medium">
+                        <i class="fas fa-exclamation-circle text-tertiary mr-2"></i>
+                        Ten en cuenta que Leyendas del Ocaso no tiene acceso ni control sobre estas cookies utilizadas por anunciantes de terceros.
+                    </p>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Políticas de Privacidad de Terceros</h2>
+
+                <p class="text-secondary mb-6">
+                    La Política de Privacidad de Leyendas del Ocaso no se aplica a otros anunciantes o sitios web. Por ello, te recomendamos consultar las respectivas Políticas de Privacidad de estos terceros para obtener información más detallada. Estas políticas pueden incluir sus prácticas y opciones sobre cómo rechazar ciertos servicios.
+                </p>
+
+                <p class="text-secondary mb-6">
+                    Puedes desactivar las cookies a través de la configuración de tu navegador. Para obtener información más detallada sobre la gestión de cookies en navegadores específicos, puedes visitar sus sitios web oficiales.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Información para Niños</h2>
+
+                <div class="flex items-start mb-6">
+                    <div class="bg-tertiary rounded-full p-3 mr-4 shrink-0">
+                        <i class="fas fa-child text-primary text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-secondary mb-4">
+                            Otra de nuestras prioridades es la protección de los menores mientras navegan por internet. Recomendamos a los padres y tutores que supervisen, participen y/o monitoreen la actividad en línea de sus hijos.
+                        </p>
+
+                        <p class="text-secondary">
+                            Leyendas del Ocaso no recopila conscientemente información personal identificable de niños menores de 13 años. Si crees que tu hijo ha proporcionado este tipo de información en nuestro sitio web, te recomendamos que nos contactes de inmediato y haremos todo lo posible para eliminar dicha información de nuestros registros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Política de Privacidad en Línea Únicamente</h2>
+
+                <p class="text-secondary mb-6">
+                    Esta Política de Privacidad se aplica únicamente a nuestras actividades en línea y es válida para los visitantes de nuestro sitio web en relación con la información que han compartido y/o que hemos recopilado en Leyendas del Ocaso. Esta política no se aplica a ninguna información recopilada fuera de línea o a través de otros canales distintos a este sitio web.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary to-secondary rounded-xl overflow-hidden shadow-xl">
+                <div class="p-8 text-light">
+                    <h2 class="text-3xl font-bold mb-6">Consentimiento</h2>
+
+                    <p class="text-xl mb-6">
+                        Al utilizar nuestro sitio web, aceptas nuestra Política de Privacidad y estás de acuerdo con sus términos y condiciones.
+                    </p>
+
+                    <a href="/" class="inline-block px-6 py-3 bg-tertiary text-primary font-bold rounded-lg hover:bg-accent transition duration-300">
+                        <i class="fas fa-arrow-left mr-2"></i> Volver al inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-primary text-light pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-64 mb-12">
+                <div>
+                    <a href="/" class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center overflow-hidden">
+                            <span class="text-primary text-2xl font-black">LO</span>
+                        </div>
+                        <span class="text-light text-xl font-bold">Leyendas del Ocaso</span>
+                    </a>
+                    <p class="mb-6">El juego RPG idle estratégico donde te convertirás en el elegido con el poder místico de invocar héroes de seis facciones.</p>
+
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Enlaces Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/#inicio" class="text-light/80 hover:text-tertiary transition duration-300">Inicio</a></li>
+                        <li><a href="/#heroes" class="text-light/80 hover:text-tertiary transition duration-300">Héroes</a></li>
+                        <li><a href="/#caracteristicas" class="text-light/80 hover:text-tertiary transition duration-300">Características</a></li>
+                        <li><a href="/#alianzas" class="text-light/80 hover:text-tertiary transition duration-300">Alianzas</a></li>
+                        <li><a href="/#comunidad" class="text-light/80 hover:text-tertiary transition duration-300">Comunidad</a></li>
+                        <li><a href="/#descargar" class="text-light/80 hover:text-tertiary transition duration-300">Descargar</a></li>
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="border-t border-light/20 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-light/60 mb-4 md:mb-0">&copy; 2025 Leyendas del Ocaso. Todos los derechos reservados.</p>
+                    <div class="flex space-x-6">
+                        <a href="/poliprivacy725/" class="text-light/60 hover:text-tertiary transition duration-300">Términos</a>
+                        <a href="/service2465/" class="text-light/60 hover:text-tertiary transition duration-300">Privacidad</a>
+                        <a href="/cookiess367/" class="text-light/60 hover:text-tertiary transition duration-300">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menú móvil
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                menu.classList.add('hidden');
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+<?php
+$cookieConsentHtml = '
+<style>
+.cookie-consent {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    background: #162b29;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    width: 360px;
+    max-width: 90vw;
+    transform: translateX(120%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: sans-serif;
+    border-left: 5px solid #fbda57;
+    border-radius: 8px 0 0 8px;
+}
+
+.cookie-container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cookie-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cookie-title {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cookie-title i {
+    color: #fbda57; 
+    font-size: 1.5rem;
+}
+
+.cookie-text {
+    color: #f8bd9e; 
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.cookie-link {
+    color: #fbda57;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cookie-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fbda57;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.cookie-link:hover::after {
+    transform: scaleX(1);
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie-button-reject,
+.cookie-button-accept {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    flex: 1;
+    border-radius: 4px;
+}
+
+.cookie-button-reject {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #216a61;
+}
+
+.cookie-button-reject:hover {
+    background: #216a61;
+    transform: translateY(-2px);
+}
+
+.cookie-button-accept {
+    background: #fbda57;
+    color: #162b29;
+    border: 2px solid #fbda57;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+}
+
+.cookie-button-accept:hover {
+    background: #f8bd9e;
+    border-color: #f8bd9e;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .cookie-consent {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-left: none;
+        border-top: 5px solid #fbda57;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .cookie-buttons {
+        flex-direction: row;
+        width: 100%;
+    }
+}
+</style>
+<div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-container">
+        <div class="cookie-content">
+            <h3 class="cookie-title">
+                <i class="fas fa-cookie-bite"></i>
+                Política de Cookies
+            </h3>
+            <p class="cookie-text">
+                En Leyendas del Ocaso utilizamos cookies para mejorar tu experiencia de juego. Al continuar usando nuestro sitio web, aceptas el uso de cookies. Para más información, lee nuestra
+                <a href="/poliprivacy725/" class="cookie-link">Política de Privacidad</a>,
+                los
+                <a href="/service2465/" class="cookie-link">Términos de Servicio</a>
+                y la
+                <a href="/cookiess367/" class="cookie-link">Política de Cookies</a>.
+            </p>
+        </div>
+        
+        <div class="cookie-buttons">
+            <button id="rejectCookies" class="cookie-button-reject">
+                Rechazar
+            </button>
+            <button id="acceptCookies" class="cookie-button-accept">
+                Aceptar
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+   const cookieConsent = document.getElementById("cookieConsent");
+   const acceptBtn = document.getElementById("acceptCookies");
+   const rejectBtn = document.getElementById("rejectCookies");
+   
+   if (!getCookie("aprenderd_cookie_consent")) {
+       setTimeout(() => {
+           cookieConsent.style.transform = "translateX(0)";
+       }, 1000);
+   }
+
+   function getCookie(name) {
+       let matches = document.cookie.match(new RegExp(
+           "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"
+       ));
+       return matches ? decodeURIComponent(matches[1]) : undefined;
+   }
+   
+   function setCookie(name, value, days) {
+       const date = new Date();
+       date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+       const expires = "; expires=" + date.toUTCString();
+       document.cookie = name + "=" + value + expires + "; path=/; SameSite=Strict; Secure";
+   }
+
+   function handleConsent(consent) {
+       setCookie("aprenderd_cookie_consent", consent, 365);
+       cookieConsent.style.transform = "translateX(120%)";
+       
+       setTimeout(() => {
+           cookieConsent.remove();
+       }, 500);
+   }
+
+   acceptBtn.addEventListener("click", () => handleConsent("accepted"));
+   rejectBtn.addEventListener("click", () => handleConsent("rejected"));
+});
+</script>
+';
+
+if (!isset($_COOKIE["aprenderd_cookie_consent"])) {
+    echo $cookieConsentHtml;
+}
+?>

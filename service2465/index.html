@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leyendas del Ocaso - AFK Heroes: Idle RPG Legends</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#162b29',
+                        secondary: '#216a61',
+                        tertiary: '#fbda57',
+                        accent: '#f8bd9e',
+                        light: '#ffffff'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-10px)'
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .wave-bg {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23216a61' fill-opacity='0.5' d='M0,96L48,106.7C96,117,192,139,288,144C384,149,480,139,576,122.7C672,107,768,85,864,90.7C960,96,1056,128,1152,138.7C1248,149,1344,139,1392,133.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .btn-custom {
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        .custom-shape {
+            clip-path: polygon(0 15%, 15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-primary shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex flex-wrap items-center justify-between">
+                <!-- Logo y Nombre -->
+                <a href="/" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center overflow-hidden animate-float">
+                        <span class="text-primary text-2xl font-black">LO</span>
+                    </div>
+                    <span class="text-light text-xl md:text-2xl font-bold">Leyendas del Ocaso</span>
+                </a>
+
+                <!-- Botón móvil -->
+                <div class="lg:hidden">
+                    <button id="menu-btn" class="text-light hover:text-tertiary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Menú de navegación -->
+                <div id="menu" class="hidden w-full lg:flex lg:w-auto lg:items-center mt-4 lg:mt-0">
+                    <ul class="flex flex-col lg:flex-row lg:space-x-8 space-y-3 lg:space-y-0">
+                        <li><a href="/#inicio" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Inicio</a></li>
+                        <li><a href="/#heroes" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Héroes</a></li>
+                        <li><a href="/#caracteristicas" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Características</a></li>
+                        <li><a href="/#alianzas" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Alianzas</a></li>
+                        <li><a href="/#comunidad" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Comunidad</a></li>
+                        <li>
+                            <a href="/#descargar" class="btn-custom inline-block px-6 py-2 bg-tertiary text-primary font-bold hover:bg-accent transition duration-300 ease-in-out">
+                                DESCARGAR
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section - Términos y Condiciones -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-primary to-secondary py-20">
+        <div class="absolute top-0 left-0 w-full h-full opacity-20">
+            <div class="absolute animate-pulse-slow w-64 h-64 rounded-full bg-tertiary top-1/4 left-1/4 blur-3xl"></div>
+            <div class="absolute animate-pulse-slow w-96 h-96 rounded-full bg-accent top-1/2 right-1/4 blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 mb-40">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-6xl font-black text-light mb-4">
+                    <span class="text-tertiary">TÉRMINOS Y</span> CONDICIONES
+                </h1>
+                <p class="text-xl text-light max-w-3xl mx-auto">
+                    Información importante sobre el uso de nuestro sitio web y servicios.
+                </p>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,128L48,117.3C96,107,192,85,288,90.7C384,96,480,128,576,149.3C672,171,768,181,864,165.3C960,149,1056,107,1152,96C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Introducción -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Bienvenido a Leyendas del Ocaso</h2>
+
+                <p class="text-secondary mb-6">
+                    Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web de Leyendas del Ocaso, ubicado en <a href="https://juega-y-disfruta.com/" class="text-tertiary hover:text-accent font-semibold">https://juega-y-disfruta.com/</a>.
+                </p>
+
+                <div class="bg-tertiary/10 border-l-4 border-tertiary p-4 rounded-r-lg mb-6">
+                    <p class="text-primary font-medium">
+                        <i class="fas fa-info-circle text-tertiary mr-2"></i>
+                        Al acceder a este sitio web, asumimos que aceptas estos términos y condiciones en su totalidad. No continúes utilizando Leyendas del Ocaso si no estás de acuerdo con todos los términos y condiciones establecidos en esta página.
+                    </p>
+                </div>
+
+                <p class="text-secondary mb-6">
+                    La siguiente terminología se aplica a estos Términos y Condiciones, Declaración de Privacidad y Aviso Legal, así como a todos los acuerdos: "Cliente", "Tú" y "Tu" se refieren a la persona que accede a este sitio web y cumple con los términos y condiciones de la empresa. "La Empresa", "Nosotros", "Nuestro" y "Nos", se refieren a nuestra empresa. "Parte", "Partes" o "Nosotros" se refieren tanto al Cliente como a nosotros.
+                </p>
+
+                <p class="text-secondary">
+                    Todos los términos se refieren a la oferta, aceptación y consideración del pago necesario para llevar a cabo nuestro proceso de asistencia al Cliente de la manera más adecuada con el propósito expreso de satisfacer sus necesidades en relación con los servicios ofrecidos por la empresa, de acuerdo con la legislación vigente en los Países Bajos. Cualquier uso de la terminología anterior u otras palabras en singular, plural, mayúsculas y/o él/ella o ellos, se consideran intercambiables y, por lo tanto, hacen referencia a lo mismo.
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Cookies</h2>
+
+                <div class="flex items-start mb-6">
+                    <div class="bg-tertiary rounded-full p-3 mr-4 shrink-0">
+                        <i class="fas fa-cookie-bite text-primary text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-secondary mb-4">
+                            Empleamos el uso de cookies. Al acceder a Leyendas del Ocaso, aceptas el uso de cookies de acuerdo con nuestra Política de Privacidad.
+                        </p>
+
+                        <p class="text-secondary">
+                            La mayoría de los sitios web interactivos utilizan cookies para permitirnos recuperar los detalles del usuario en cada visita. Nuestro sitio web utiliza cookies para mejorar la funcionalidad de ciertas áreas, facilitando la navegación. Algunos de nuestros socios publicitarios o afiliados también pueden usar cookies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Licencia</h2>
+
+                <p class="text-secondary mb-6">
+                    A menos que se indique lo contrario, Leyendas del Ocaso y/o sus licenciantes poseen los derechos de propiedad intelectual de todo el material presente en el sitio web. Todos los derechos de propiedad intelectual están reservados. Puedes acceder a Leyendas del Ocaso para tu uso personal, sujeto a las restricciones establecidas en estos términos y condiciones.
+                </p>
+
+                <div class="bg-gradient-to-r from-primary/5 to-secondary/10 rounded-xl p-6 mb-6">
+                    <h3 class="text-xl font-bold text-primary mb-4">No debes:</h3>
+
+                    <ul class="list-inside space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-times text-accent text-sm mt-1.5 mr-3"></i>
+                            <span class="text-secondary">Republicar material de Leyendas del Ocaso.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times text-accent text-sm mt-1.5 mr-3"></i>
+                            <span class="text-secondary">Vender, alquilar o sublicenciar material de Leyendas del Ocaso.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times text-accent text-sm mt-1.5 mr-3"></i>
+                            <span class="text-secondary">Reproducir, duplicar o copiar material de Leyendas del Ocaso.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times text-accent text-sm mt-1.5 mr-3"></i>
+                            <span class="text-secondary">Redistribuir contenido de Leyendas del Ocaso.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="text-secondary">
+                    Este acuerdo comenzará en la fecha actual.
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Comentarios de los Usuarios</h2>
+
+                <p class="text-secondary mb-6">
+                    Partes de este sitio web permiten a los usuarios publicar y compartir opiniones e información en determinadas secciones. Leyendas del Ocaso no filtra, edita, publica ni revisa los comentarios antes de su aparición en el sitio web. Los comentarios reflejan únicamente las opiniones del usuario que los publica y no las de Leyendas del Ocaso, sus agentes y/o afiliados.
+                </p>
+
+                <div class="bg-accent/10 rounded-xl p-6 mb-6">
+                    <p class="text-secondary">
+                        Nos reservamos el derecho de supervisar todos los comentarios y eliminar aquellos que consideremos inapropiados, ofensivos o que incumplan estos términos y condiciones.
+                    </p>
+                </div>
+
+                <p class="text-secondary mb-6">
+                    Al publicar comentarios, garantizas y declaras que:
+                </p>
+
+                <ul class="list-inside space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-tertiary text-sm mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Tienes derecho a publicar los comentarios en nuestro sitio y posees todas las licencias y permisos necesarios.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-tertiary text-sm mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Los comentarios no infringen ningún derecho de propiedad intelectual de terceros.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-tertiary text-sm mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Los comentarios no contienen material difamatorio, ofensivo, indecente o ilegal.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-tertiary text-sm mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Los comentarios no se utilizarán para promover negocios, actividades comerciales o actividades ilícitas.</span>
+                    </li>
+                </ul>
+
+                <p class="text-secondary">
+                    Concedes a Leyendas del Ocaso una licencia no exclusiva para usar, reproducir, editar y autorizar a otros a usar, reproducir y editar cualquiera de tus comentarios en cualquier formato o medio.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Enlaces a nuestro contenido</h2>
+
+                <p class="text-secondary mb-6">
+                    Las siguientes organizaciones pueden enlazar a nuestro sitio web sin aprobación previa por escrito:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-gradient-to-r from-primary/5 to-secondary/10 p-4 rounded-xl">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-building text-tertiary mr-3"></i>
+                            <h4 class="font-bold text-primary">Agencias gubernamentales</h4>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-primary/5 to-secondary/10 p-4 rounded-xl">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-search text-tertiary mr-3"></i>
+                            <h4 class="font-bold text-primary">Motores de búsqueda</h4>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-primary/5 to-secondary/10 p-4 rounded-xl">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-newspaper text-tertiary mr-3"></i>
+                            <h4 class="font-bold text-primary">Organizaciones de noticias</h4>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-primary/5 to-secondary/10 p-4 rounded-xl">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-folder-open text-tertiary mr-3"></i>
+                            <h4 class="font-bold text-primary">Distribuidores de directorios en línea</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1 md:col-span-2 bg-gradient-to-r from-primary/5 to-secondary/10 p-4 rounded-xl">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-briefcase text-tertiary mr-3"></i>
+                            <h4 class="font-bold text-primary">Empresas acreditadas en todo el sistema</h4>
+                        </div>
+                        <p class="text-secondary text-sm">Excepto organizaciones sin fines de lucro solicitantes, centros comerciales de caridad y grupos de recaudación de fondos benéficos que no pueden enlazar a nuestro sitio web.</p>
+                    </div>
+                </div>
+                <p class="text-secondary mb-6">
+                    Podemos considerar y aprobar otras solicitudes de enlace de los siguientes tipos de organizaciones:
+                </p>
+
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Fuentes de información de consumidores y/o negocios comúnmente reconocidas.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Sitios de comunidades en línea.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Asociaciones u otros grupos que representen organizaciones benéficas.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Distribuidores de directorios en línea.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Portales de Internet.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Firmas de contabilidad, derecho y consultoría.</span>
+                    </li>
+                    <li class="flex items-start col-span-1 md:col-span-2">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Instituciones educativas y asociaciones comerciales.</span>
+                    </li>
+                </ul>
+
+                <div class="bg-tertiary/10 border-l-4 border-tertiary p-4 rounded-r-lg mb-6">
+                    <p class="text-primary font-medium">
+                        <i class="fas fa-envelope text-tertiary mr-2"></i>
+                        Si deseas enlazar a nuestro sitio web, debes enviarnos un correo electrónico a Leyendas del Ocaso incluyendo tu nombre, el nombre de tu organización, información de contacto y los enlaces específicos que deseas establecer.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">iFrames</h2>
+
+                <div class="bg-gradient-to-r from-primary/5 to-secondary/10 rounded-xl p-6 mb-6">
+                    <p class="text-secondary">
+                        <i class="fas fa-exclamation-circle text-tertiary mr-2"></i>
+                        Sin previa autorización y permiso por escrito, no puedes crear marcos alrededor de nuestras páginas web que alteren la presentación visual o apariencia de nuestro sitio web.
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-bold text-primary mb-4">Responsabilidad del Contenido</h3>
+
+                <p class="text-secondary mb-6">
+                    No nos hacemos responsables del contenido que aparezca en tu sitio web. Aceptas protegernos y defendernos contra cualquier reclamación que surja en tu sitio web.
+                </p>
+
+                <h3 class="text-2xl font-bold text-primary mb-4">Reservación de Derechos</h3>
+
+                <p class="text-secondary mb-6">
+                    Nos reservamos el derecho de solicitar que elimines cualquier enlace a nuestro sitio web. También nos reservamos el derecho de modificar estos términos y condiciones y nuestra política de enlaces en cualquier momento. Al continuar enlazando a nuestro sitio web, aceptas regirte por estos términos y condiciones.
+                </p>
+
+                <h3 class="text-2xl font-bold text-primary mb-4">Eliminación de Enlaces de Nuestro Sitio Web</h3>
+
+                <p class="text-secondary mb-6">
+                    Si encuentras algún enlace en nuestro sitio web que consideres ofensivo, puedes contactarnos en cualquier momento. Consideraremos las solicitudes de eliminación de enlaces, pero no estamos obligados a hacerlo ni a responder directamente.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-6">Exención de Responsabilidad</h2>
+
+                <p class="text-secondary mb-6">
+                    En la medida máxima permitida por la ley aplicable, excluimos todas las representaciones, garantías y condiciones relacionadas con nuestro sitio web y el uso del mismo. Nada en esta exención de responsabilidad:
+                </p>
+
+                <ul class="list-inside space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Limita o excluye nuestra responsabilidad o la tuya por muerte o lesiones personales.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Limita o excluye nuestra responsabilidad o la tuya por fraude o tergiversación fraudulenta.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Limita nuestras responsabilidades de cualquier manera que no esté permitida por la ley aplicable.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-circle text-tertiary text-xs mt-1.5 mr-3"></i>
+                        <span class="text-secondary">Excluye nuestras responsabilidades o las tuyas que no puedan excluirse bajo la ley aplicable.</span>
+                    </li>
+                </ul>
+
+                <div class="bg-accent/10 rounded-xl p-6 mb-6">
+                    <p class="text-secondary">
+                        <i class="fas fa-info-circle text-accent mr-2"></i>
+                        Dado que nuestro sitio web y los servicios en él se proporcionan de forma gratuita, no seremos responsables de ninguna pérdida o daño de cualquier naturaleza.
+                    </p>
+                </div>
+
+                <p class="text-secondary">
+                    Si tienes alguna pregunta sobre estos términos y condiciones, puedes contactarnos en cualquier momento a través de nuestro sitio web <a href="https://juega-y-disfruta.com/" class="text-tertiary hover:text-accent font-semibold">https://juega-y-disfruta.com/</a>.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary to-secondary rounded-xl overflow-hidden shadow-xl">
+                <div class="p-8 text-light">
+                    <h2 class="text-3xl font-bold mb-6">¿Necesitas ayuda?</h2>
+
+                    <p class="text-xl mb-6">
+                        Si tienes alguna pregunta sobre nuestros términos y condiciones, no dudes en contactarnos.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/" class="inline-block px-6 py-3 bg-tertiary text-primary font-bold rounded-lg hover:bg-accent transition duration-300">
+                            <i class="fas fa-arrow-left mr-2"></i> Volver al inicio
+                        </a>
+
+                        <a href="/contacto" class="inline-block px-6 py-3 bg-light text-primary font-bold rounded-lg hover:bg-accent transition duration-300">
+                            <i class="fas fa-envelope mr-2"></i> Contactar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-primary text-light pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-64 mb-12">
+                <div>
+                    <a href="/" class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center overflow-hidden">
+                            <span class="text-primary text-2xl font-black">LO</span>
+                        </div>
+                        <span class="text-light text-xl font-bold">Leyendas del Ocaso</span>
+                    </a>
+                    <p class="mb-6">El juego RPG idle estratégico donde te convertirás en el elegido con el poder místico de invocar héroes de seis facciones.</p>
+
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Enlaces Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/#inicio" class="text-light/80 hover:text-tertiary transition duration-300">Inicio</a></li>
+                        <li><a href="/#heroes" class="text-light/80 hover:text-tertiary transition duration-300">Héroes</a></li>
+                        <li><a href="/#caracteristicas" class="text-light/80 hover:text-tertiary transition duration-300">Características</a></li>
+                        <li><a href="/#alianzas" class="text-light/80 hover:text-tertiary transition duration-300">Alianzas</a></li>
+                        <li><a href="/#comunidad" class="text-light/80 hover:text-tertiary transition duration-300">Comunidad</a></li>
+                        <li><a href="/#descargar" class="text-light/80 hover:text-tertiary transition duration-300">Descargar</a></li>
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="border-t border-light/20 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-light/60 mb-4 md:mb-0">&copy; 2025 Leyendas del Ocaso. Todos los derechos reservados.</p>
+                    <div class="flex space-x-6">
+                        <a href="/poliprivacy725/" class="text-light/60 hover:text-tertiary transition duration-300">Términos</a>
+                        <a href="/service2465/" class="text-light/60 hover:text-tertiary transition duration-300">Privacidad</a>
+                        <a href="/cookiess367/" class="text-light/60 hover:text-tertiary transition duration-300">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menú móvil
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                menu.classList.add('hidden');
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+<?php
+$cookieConsentHtml = '
+<style>
+.cookie-consent {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    background: #162b29;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    width: 360px;
+    max-width: 90vw;
+    transform: translateX(120%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: sans-serif;
+    border-left: 5px solid #fbda57;
+    border-radius: 8px 0 0 8px;
+}
+
+.cookie-container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cookie-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cookie-title {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cookie-title i {
+    color: #fbda57; 
+    font-size: 1.5rem;
+}
+
+.cookie-text {
+    color: #f8bd9e; 
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.cookie-link {
+    color: #fbda57;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cookie-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fbda57;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.cookie-link:hover::after {
+    transform: scaleX(1);
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie-button-reject,
+.cookie-button-accept {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    flex: 1;
+    border-radius: 4px;
+}
+
+.cookie-button-reject {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #216a61;
+}
+
+.cookie-button-reject:hover {
+    background: #216a61;
+    transform: translateY(-2px);
+}
+
+.cookie-button-accept {
+    background: #fbda57;
+    color: #162b29;
+    border: 2px solid #fbda57;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+}
+
+.cookie-button-accept:hover {
+    background: #f8bd9e;
+    border-color: #f8bd9e;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .cookie-consent {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-left: none;
+        border-top: 5px solid #fbda57;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .cookie-buttons {
+        flex-direction: row;
+        width: 100%;
+    }
+}
+</style>
+<div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-container">
+        <div class="cookie-content">
+            <h3 class="cookie-title">
+                <i class="fas fa-cookie-bite"></i>
+                Política de Cookies
+            </h3>
+            <p class="cookie-text">
+                En Leyendas del Ocaso utilizamos cookies para mejorar tu experiencia de juego. Al continuar usando nuestro sitio web, aceptas el uso de cookies. Para más información, lee nuestra
+                <a href="/poliprivacy725/" class="cookie-link">Política de Privacidad</a>,
+                los
+                <a href="/service2465/" class="cookie-link">Términos de Servicio</a>
+                y la
+                <a href="/cookiess367/" class="cookie-link">Política de Cookies</a>.
+            </p>
+        </div>
+        
+        <div class="cookie-buttons">
+            <button id="rejectCookies" class="cookie-button-reject">
+                Rechazar
+            </button>
+            <button id="acceptCookies" class="cookie-button-accept">
+                Aceptar
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+   const cookieConsent = document.getElementById("cookieConsent");
+   const acceptBtn = document.getElementById("acceptCookies");
+   const rejectBtn = document.getElementById("rejectCookies");
+   
+   if (!getCookie("aprenderd_cookie_consent")) {
+       setTimeout(() => {
+           cookieConsent.style.transform = "translateX(0)";
+       }, 1000);
+   }
+
+   function getCookie(name) {
+       let matches = document.cookie.match(new RegExp(
+           "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"
+       ));
+       return matches ? decodeURIComponent(matches[1]) : undefined;
+   }
+   
+   function setCookie(name, value, days) {
+       const date = new Date();
+       date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+       const expires = "; expires=" + date.toUTCString();
+       document.cookie = name + "=" + value + expires + "; path=/; SameSite=Strict; Secure";
+   }
+
+   function handleConsent(consent) {
+       setCookie("aprenderd_cookie_consent", consent, 365);
+       cookieConsent.style.transform = "translateX(120%)";
+       
+       setTimeout(() => {
+           cookieConsent.remove();
+       }, 500);
+   }
+
+   acceptBtn.addEventListener("click", () => handleConsent("accepted"));
+   rejectBtn.addEventListener("click", () => handleConsent("rejected"));
+});
+</script>
+';
+
+if (!isset($_COOKIE["aprenderd_cookie_consent"])) {
+    echo $cookieConsentHtml;
+}
+?>

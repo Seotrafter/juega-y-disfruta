@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leyendas del Ocaso - AFK Heroes: Idle RPG Legends</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#162b29',
+                        secondary: '#216a61',
+                        tertiary: '#fbda57',
+                        accent: '#f8bd9e',
+                        light: '#ffffff'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-10px)'
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .wave-bg {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23216a61' fill-opacity='0.5' d='M0,96L48,106.7C96,117,192,139,288,144C384,149,480,139,576,122.7C672,107,768,85,864,90.7C960,96,1056,128,1152,138.7C1248,149,1344,139,1392,133.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .btn-custom {
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        .custom-shape {
+            clip-path: polygon(0 15%, 15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-primary shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex flex-wrap items-center justify-between">
+                <!-- Logo y Nombre -->
+                <a href="/" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center overflow-hidden animate-float">
+                        <span class="text-primary text-2xl font-black">LO</span>
+                    </div>
+                    <span class="text-light text-xl md:text-2xl font-bold">Leyendas del Ocaso</span>
+                </a>
+
+                <!-- Botón móvil -->
+                <div class="lg:hidden">
+                    <button id="menu-btn" class="text-light hover:text-tertiary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Menú de navegación -->
+                <div id="menu" class="hidden w-full lg:flex lg:w-auto lg:items-center mt-4 lg:mt-0">
+                    <ul class="flex flex-col lg:flex-row lg:space-x-8 space-y-3 lg:space-y-0">
+                        <li><a href="#inicio" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Inicio</a></li>
+                        <li><a href="#heroes" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Héroes</a></li>
+                        <li><a href="#caracteristicas" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Características</a></li>
+                        <li><a href="#alianzas" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Alianzas</a></li>
+                        <li><a href="#comunidad" class="text-light hover:text-tertiary font-semibold text-lg transition duration-300 ease-in-out">Comunidad</a></li>
+                        <li>
+                            <a href="#descargar" class="btn-custom inline-block px-6 py-2 bg-tertiary text-primary font-bold hover:bg-accent transition duration-300 ease-in-out">
+                                DESCARGAR
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative overflow-hidden bg-gradient-to-b from-primary to-secondary min-h-screen flex items-center">
+        <div class="absolute top-0 left-0 w-full h-full opacity-20">
+            <div class="absolute animate-pulse-slow w-64 h-64 rounded-full bg-tertiary top-1/4 left-1/4 blur-3xl"></div>
+            <div class="absolute animate-pulse-slow w-96 h-96 rounded-full bg-accent top-1/2 right-1/4 blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 pb-64 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h1 class="text-5xl md:text-7xl font-black text-light mb-6 leading-tight">
+                        <span class="text-tertiary">LEYENDAS</span> DEL OCASO
+                    </h1>
+                    <p class="text-xl md:text-2xl font-medium text-light mb-8">
+                        Conviértete en el elegido con el poder místico de invocar héroes de seis facciones. ¡Salva el mundo del malvado Legión Oscuro!
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#descargar" class="btn-custom inline-block px-8 py-4 bg-tertiary text-primary text-xl font-extrabold hover:bg-accent transition duration-300 ease-in-out">
+                            JUGAR AHORA
+                        </a>
+                        <a href="#caracteristicas" class="btn-custom inline-block px-8 py-4 bg-accent text-primary text-xl font-extrabold hover:bg-tertiary transition duration-300 ease-in-out">
+                            DESCUBRIR
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="custom-shape bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 animate-float">
+                        <img src="/src/img/first-pic.png" alt="AFK Heroes" class="rounded-lg object-cover w-full h-full shadow-2xl" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,128L48,117.3C96,107,192,85,288,90.7C384,96,480,128,576,149.3C672,171,768,181,864,165.3C960,149,1056,107,1152,96C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Sección de Héroes -->
+    <section id="heroes" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">HÉROES LEGENDARIOS</h2>
+                <p class="text-lg md:text-xl text-secondary max-w-3xl mx-auto">Invoca a más de 100 superhéroes de seis facciones con habilidades únicas para formar tu equipo perfecto.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Facción 1 -->
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/20 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70 z-10"></div>
+                        <img src="/src/img/hero1.png" alt="Facción Este" class="w-full h-full object-cover" />
+                        <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-light z-20">ESTE</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-secondary mb-4">Maestros de la sabiduría ancestral y las artes marciales, utilizan la fuerza interior para derrotar a sus enemigos.</p>
+                        <a href="#descargar" class="inline-block text-tertiary font-bold hover:text-accent">
+                            Ver héroes <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Facción 2 -->
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/20 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70 z-10"></div>
+                        <img src="/src/img/hero2.png" alt="Facción Vengador" class="w-full h-full object-cover" />
+                        <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-light z-20">VENGADOR</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-secondary mb-4">Guerreros impulsados por un inquebrantable sentido de justicia, buscan restaurar el equilibrio con poderes extraordinarios.</p>
+                        <a href="#descargar" class="inline-block text-tertiary font-bold hover:text-accent">
+                            Ver héroes <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Facción 3 -->
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/20 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70 z-10"></div>
+                        <img src="/src/img/hero3.png" alt="Facción Mecha" class="w-full h-full object-cover" />
+                        <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-light z-20">MECHA</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-secondary mb-4">Ingenios tecnológicos avanzados, estos guerreros mecánicos combinan inteligencia artificial con armamento devastador.</p>
+                        <a href="#descargar" class="inline-block text-tertiary font-bold hover:text-accent">
+                            Ver héroes <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Facción 4 -->
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/20 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70 z-10"></div>
+                        <img src="/src/img/hero4.png" alt="Facción Muerte" class="w-full h-full object-cover" />
+                        <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-light z-20">MUERTE</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-secondary mb-4">Domadores de las artes oscuras y el reino de las sombras, utilizan poderes prohibidos para cumplir sus objetivos.</p>
+                        <a href="#descargar" class="inline-block text-tertiary font-bold hover:text-accent">
+                            Ver héroes <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Facción 5 -->
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/20 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70 z-10"></div>
+                        <img src="/src/img/hero5.png" alt="Facción Líder" class="w-full h-full object-cover" />
+                        <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-light z-20">LÍDER</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-secondary mb-4">Estrategas natos con habilidades de inspiración y mando, potencian las capacidades de sus aliados en el campo de batalla.</p>
+                        <a href="#descargar" class="inline-block text-tertiary font-bold hover:text-accent">
+                            Ver héroes <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Facción 6 -->
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/20 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70 z-10"></div>
+                        <img src="/src/img/hero6.png" alt="Facción Destructor" class="w-full h-full object-cover" />
+                        <h3 class="absolute bottom-4 left-4 text-2xl font-bold text-light z-20">DESTRUCTOR</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-secondary mb-4">Guerreros de poder bruto y devastador, especializados en causar destrucción masiva y doblar la realidad a su voluntad.</p>
+                        <a href="#descargar" class="inline-block text-tertiary font-bold hover:text-accent">
+                            Ver héroes <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características del Juego -->
+    <section id="caracteristicas" class="py-20 bg-gradient-to-b from-light to-tertiary/30 relative overflow-hidden">
+        <div class="absolute inset-0 wave-bg opacity-20"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">CARACTERÍSTICAS ÉPICAS</h2>
+                <p class="text-lg md:text-xl text-secondary max-w-3xl mx-auto">Descubre un mundo lleno de aventuras, estrategias y batallas automáticas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="order-2 md:order-1">
+                    <h3 class="text-3xl font-bold text-secondary mb-4">Invoca héroes poderosos</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-gem text-tertiary text-xl mt-1 mr-3"></i>
+                            <p class="text-lg text-primary">Abre la taberna de héroes e invoca a más de 100 superhéroes con habilidades únicas.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chess-knight text-tertiary text-xl mt-1 mr-3"></i>
+                            <p class="text-lg text-primary">Cada héroe tiene un talento único y una combinación de habilidades especiales.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-up text-tertiary text-xl mt-1 mr-3"></i>
+                            <p class="text-lg text-primary">Entrena a tu equipo y evoluciónalos desde común hasta mítico.</p>
+                        </li>
+                    </ul>
+                    <a href="#descargar" class="btn-custom inline-block mt-6 px-6 py-3 bg-secondary text-light font-bold hover:bg-primary transition duration-300 ease-in-out">
+                        DESCUBRIR HÉROES
+                    </a>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-tertiary to-accent rounded-xl blur-xl opacity-30 animate-pulse-slow"></div>
+                        <img src="/src/img/heros.png" alt="Héroes del juego" class="rounded-xl shadow-xl relative z-10 w-full" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+                <div>
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-accent to-tertiary rounded-xl blur-xl opacity-30 animate-pulse-slow"></div>
+                        <img src="/src/img/battles.png" alt="Batallas automáticas" class="rounded-xl shadow-xl relative z-10 w-full" />
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold text-secondary mb-4">Batallas automáticas en Idle RPG</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-robot text-tertiary text-xl mt-1 mr-3"></i>
+                            <p class="text-lg text-primary">Configura a tus héroes para que sigan luchando incluso cuando estés desconectado.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-coins text-tertiary text-xl mt-1 mr-3"></i>
+                            <p class="text-lg text-primary">Recoge fácilmente recompensas y recursos sin gastar demasiado tiempo cada día.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-gift text-tertiary text-xl mt-1 mr-3"></i>
+                            <p class="text-lg text-primary">Disfruta de sorpresas inesperadas y diviértete en el juego como jugador inactivo.</p>
+                        </li>
+                    </ul>
+                    <a href="#descargar" class="btn-custom inline-block mt-6 px-6 py-3 bg-secondary text-light font-bold hover:bg-primary transition duration-300 ease-in-out">
+                        SISTEMA DE COMBATE
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h3 class="text-3xl font-bold text-secondary mb-4">Aventuras en el espacio</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-planet-ringed text-tertiary text-xl mt-1 mr-3"></i>
+                            <p class="text-lg text-primary">Envía a tus héroes a luchar en el espacio abierto contra monstruos para obtener recompensas raras.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-fire text-tertiary text-xl mt-1 mr-3"></i>
+                            <p class="text-lg text-primary">Desafía el infierno de segundo nivel intercambiando héroes de diferentes facciones.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-skull text-tertiary text-xl mt-1 mr-3"></i>
+                            <p class="text-lg text-primary">Forma tres equipos con tus héroes más fuertes y participa en la prueba de dificultad pesadilla.</p>
+                        </li>
+                    </ul>
+                    <a href="#descargar" class="btn-custom inline-block mt-6 px-6 py-3 bg-secondary text-light font-bold hover:bg-primary transition duration-300 ease-in-out">
+                        EXPLORAR AVENTURAS
+                    </a>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-tertiary to-accent rounded-xl blur-xl opacity-30 animate-pulse-slow"></div>
+                        <img src="/src/img/space.png" alt="Aventuras espaciales" class="rounded-xl shadow-xl relative z-10 w-full" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Alianzas -->
+    <section id="alianzas" class="py-20 bg-light relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">FORMA ALIANZAS</h2>
+                <p class="text-lg md:text-xl text-secondary max-w-3xl mx-auto">Únete a millones de jugadores de todo el mundo y forma poderosas alianzas para derrotar al Legión Oscuro.</p>
+            </div>
+
+            <div class="relative custom-shape bg-gradient-to-r from-primary to-secondary p-8 rounded-xl text-light mb-16">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-white/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-3xl text-tertiary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Crea Tu Clan</h3>
+                        <p>Funda tu propio clan y recluta a los guerreros más poderosos para luchar bajo tu bandera.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="bg-white/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-3xl text-tertiary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Guerras de Clanes</h3>
+                        <p>Compite contra otros clanes en batallas épicas para demostrar quién tiene el dominio absoluto.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="bg-white/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-gift text-3xl text-tertiary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Recompensas Exclusivas</h3>
+                        <p>Obtén recompensas y artefactos exclusivos que solo están disponibles para miembros de clanes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center bg-tertiary/10 rounded-xl overflow-hidden">
+                <div class="md:w-1/2 p-8 md:p-12">
+                    <h3 class="text-3xl font-bold text-primary mb-4">Centro de Clonación</h3>
+                    <p class="text-lg text-secondary mb-6">Concéntrate en cultivar cinco héroes principales y mejora su nivel de experiencia. Inicia el plan de clonación y comparte niveles con un solo toque para disfrutar de nuevas experiencias de juego.</p>
+                    <a href="#descargar" class="btn-custom inline-block px-6 py-3 bg-primary text-light font-bold hover:bg-secondary transition duration-300 ease-in-out">
+                        DESCUBRIR MÁS
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="/src/img/cone.png" alt="Centro de Clonación" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Comunidad -->
+    <section id="comunidad" class="py-20 bg-gradient-to-b from-light to-accent/20 relative overflow-hidden">
+        <div class="absolute inset-0 wave-bg opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">ÚNETE A LA COMUNIDAD</h2>
+                <p class="text-lg md:text-xl text-secondary max-w-3xl mx-auto">Conéctate con millones de jugadores, comparte estrategias y disfruta de eventos exclusivos.</p>
+            </div>
+
+
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 md:p-12">
+                        <h3 class="text-3xl font-bold text-primary mb-4">Opiniones de jugadores</h3>
+                        <div class="space-y-6">
+                            <div class="bg-tertiary/10 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-light font-bold mr-3">
+                                        M
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-primary">Manuel Rojas</h4>
+                                        <div class="flex text-tertiary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-secondary">"Increíble juego con mecánicas adictivas. Me encanta que pueda progresar incluso cuando no estoy jugando activamente. ¡Los héroes tienen diseños únicos y las batallas son espectaculares!"</p>
+                            </div>
+
+                            <div class="bg-tertiary/10 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-light font-bold mr-3">
+                                        C
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-primary">Camila Fuentes</h4>
+                                        <div class="flex text-tertiary">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-secondary">"Lo que más me gusta es la variedad de héroes y las diferentes estrategias que se pueden formar. El sistema de clonación es genial para subir de nivel más rápido. ¡Totalmente recomendado!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-primary to-secondary text-light p-8 md:p-12 flex flex-col justify-center">
+                        <div class="mb-6">
+                            <div class="flex items-center mb-4">
+                                <div class="text-4xl font-black mr-2">4.6</div>
+                                <div>
+                                    <div class="flex text-tertiary">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <div class="text-light/80">7.560 reseñas</div>
+                                </div>
+                            </div>
+                            <div class="h-2 bg-white/20 rounded-full mb-1 overflow-hidden">
+                                <div class="h-full bg-tertiary rounded-full" style="width: 85%"></div>
+                            </div>
+                            <div class="flex justify-between text-sm text-light/80">
+                                <span>5 estrellas</span>
+                                <span>85%</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="h-2 bg-white/20 rounded-full mb-1 overflow-hidden">
+                                <div class="h-full bg-tertiary rounded-full" style="width: 10%"></div>
+                            </div>
+                            <div class="flex justify-between text-sm text-light/80">
+                                <span>4 estrellas</span>
+                                <span>10%</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="h-2 bg-white/20 rounded-full mb-1 overflow-hidden">
+                                <div class="h-full bg-tertiary rounded-full" style="width: 3%"></div>
+                            </div>
+                            <div class="flex justify-between text-sm text-light/80">
+                                <span>3 estrellas</span>
+                                <span>3%</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="h-2 bg-white/20 rounded-full mb-1 overflow-hidden">
+                                <div class="h-full bg-tertiary rounded-full" style="width: 1%"></div>
+                            </div>
+                            <div class="flex justify-between text-sm text-light/80">
+                                <span>2 estrellas</span>
+                                <span>1%</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="h-2 bg-white/20 rounded-full mb-1 overflow-hidden">
+                                <div class="h-full bg-tertiary rounded-full" style="width: 1%"></div>
+                            </div>
+                            <div class="flex justify-between text-sm text-light/80">
+                                <span>1 estrella</span>
+                                <span>1%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Descarga -->
+    <section id="descargar" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl overflow-hidden relative">
+                <div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                        <path fill="#FBDA57" d="M46.5,-76.2C60.9,-69.2,73.7,-58.2,81.9,-44.3C90.1,-30.5,93.8,-13.8,93.4,2.9C92.9,19.6,88.3,36.4,78.8,50C69.2,63.7,54.8,74.2,39.7,78.1C24.7,82,9.1,79.2,-5.5,74.9C-20.1,70.7,-33.6,64.9,-45.3,56C-57,47.1,-66.8,35.1,-72.9,21C-79,6.9,-81.5,-9.4,-77.1,-23C-72.7,-36.7,-61.5,-47.7,-48.3,-55.2C-35.1,-62.7,-19.9,-66.7,-3.5,-71.1C12.9,-75.6,32.1,-83.3,46.5,-76.2Z" transform="translate(100 100)" />
+                    </svg>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 md:p-12 items-center relative z-10">
+                    <div class="text-light">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">¡DESCARGA AHORA!</h2>
+                        <p class="text-xl mb-6">Únete a más de 100.000 jugadores en todo el mundo y comienza tu aventura en AFK Heroes: Idle RPG Legends. ¡Descarga gratis y empieza a jugar hoy mismo!</p>
+
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://play.google.com/store/apps/details?id=com.herowars.afkheroes&pcampaignid=web_share" target="_blank" class="bg-tertiary hover:bg-accent text-primary font-bold px-6 py-3 rounded-lg flex items-center transition duration-300 ease-in-out">
+                                <i class="fab fa-google-play text-2xl mr-3"></i>
+                                <div>
+                                    <div class="text-xs">DISPONIBLE EN</div>
+                                    <div>Google Play</div>
+                                </div>
+                            </a>
+
+                            <a href="https://apps.apple.com/us/app/afk-heroes-fantasy-idle-rpg/id1510917186" target="_blank" class="bg-tertiary hover:bg-accent text-primary font-bold px-6 py-3 rounded-lg flex items-center transition duration-300 ease-in-out">
+                                <i class="fab fa-apple text-2xl mr-3"></i>
+                                <div>
+                                    <div class="text-xs">DESCARGA EN</div>
+                                    <div>App Store</div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="mt-8">
+                            <div class="flex items-center">
+                                <div class="flex text-tertiary mr-2">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>4.6/5 (7.560 reseñas)</span>
+                            </div>
+                            <div class="mt-2 flex items-center">
+                                <i class="fas fa-download text-tertiary mr-2"></i>
+                                <span>Más de 100.000 descargas</span>
+                            </div>
+                            <div class="mt-2 flex items-center">
+                                <i class="fas fa-child text-tertiary mr-2"></i>
+                                <span>Para mayores de 7 años</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-white rounded-full blur-xl opacity-20"></div>
+                            <img src="/src/img/downaload.png" alt="AFK Heroes App" class="relative z-10 h-96 object-cover rounded-xl shadow-2xl animate-float" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-light pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-64 mb-12">
+                <div>
+                    <a href="/" class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center overflow-hidden">
+                            <span class="text-primary text-2xl font-black">LO</span>
+                        </div>
+                        <span class="text-light text-xl font-bold">Leyendas del Ocaso</span>
+                    </a>
+                    <p class="mb-6">El juego RPG idle estratégico donde te convertirás en el elegido con el poder místico de invocar héroes de seis facciones.</p>
+
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Enlaces Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#inicio" class="text-light/80 hover:text-tertiary transition duration-300">Inicio</a></li>
+                        <li><a href="#heroes" class="text-light/80 hover:text-tertiary transition duration-300">Héroes</a></li>
+                        <li><a href="#caracteristicas" class="text-light/80 hover:text-tertiary transition duration-300">Características</a></li>
+                        <li><a href="#alianzas" class="text-light/80 hover:text-tertiary transition duration-300">Alianzas</a></li>
+                        <li><a href="#comunidad" class="text-light/80 hover:text-tertiary transition duration-300">Comunidad</a></li>
+                        <li><a href="#descargar" class="text-light/80 hover:text-tertiary transition duration-300">Descargar</a></li>
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="border-t border-light/20 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-light/60 mb-4 md:mb-0">&copy; 2025 Leyendas del Ocaso. Todos los derechos reservados.</p>
+                    <div class="flex space-x-6">
+                        <a href="/poliprivacy725/" class="text-light/60 hover:text-tertiary transition duration-300">Términos</a>
+                        <a href="/service2465/" class="text-light/60 hover:text-tertiary transition duration-300">Privacidad</a>
+                        <a href="/cookiess367/" class="text-light/60 hover:text-tertiary transition duration-300">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menú móvil
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                menu.classList.add('hidden');
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+<?php
+$cookieConsentHtml = '
+<style>
+.cookie-consent {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    background: #162b29;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    width: 360px;
+    max-width: 90vw;
+    transform: translateX(120%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: sans-serif;
+    border-left: 5px solid #fbda57;
+    border-radius: 8px 0 0 8px;
+}
+
+.cookie-container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cookie-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cookie-title {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cookie-title i {
+    color: #fbda57; 
+    font-size: 1.5rem;
+}
+
+.cookie-text {
+    color: #f8bd9e; 
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.cookie-link {
+    color: #fbda57;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cookie-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fbda57;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.cookie-link:hover::after {
+    transform: scaleX(1);
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie-button-reject,
+.cookie-button-accept {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    flex: 1;
+    border-radius: 4px;
+}
+
+.cookie-button-reject {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #216a61;
+}
+
+.cookie-button-reject:hover {
+    background: #216a61;
+    transform: translateY(-2px);
+}
+
+.cookie-button-accept {
+    background: #fbda57;
+    color: #162b29;
+    border: 2px solid #fbda57;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+}
+
+.cookie-button-accept:hover {
+    background: #f8bd9e;
+    border-color: #f8bd9e;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .cookie-consent {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-left: none;
+        border-top: 5px solid #fbda57;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .cookie-buttons {
+        flex-direction: row;
+        width: 100%;
+    }
+}
+</style>
+<div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-container">
+        <div class="cookie-content">
+            <h3 class="cookie-title">
+                <i class="fas fa-cookie-bite"></i>
+                Política de Cookies
+            </h3>
+            <p class="cookie-text">
+                En Leyendas del Ocaso utilizamos cookies para mejorar tu experiencia de juego. Al continuar usando nuestro sitio web, aceptas el uso de cookies. Para más información, lee nuestra
+                <a href="/poliprivacy725/" class="cookie-link">Política de Privacidad</a>,
+                los
+                <a href="/service2465/" class="cookie-link">Términos de Servicio</a>
+                y la
+                <a href="/cookiess367/" class="cookie-link">Política de Cookies</a>.
+            </p>
+        </div>
+        
+        <div class="cookie-buttons">
+            <button id="rejectCookies" class="cookie-button-reject">
+                Rechazar
+            </button>
+            <button id="acceptCookies" class="cookie-button-accept">
+                Aceptar
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+   const cookieConsent = document.getElementById("cookieConsent");
+   const acceptBtn = document.getElementById("acceptCookies");
+   const rejectBtn = document.getElementById("rejectCookies");
+   
+   if (!getCookie("aprenderd_cookie_consent")) {
+       setTimeout(() => {
+           cookieConsent.style.transform = "translateX(0)";
+       }, 1000);
+   }
+
+   function getCookie(name) {
+       let matches = document.cookie.match(new RegExp(
+           "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"
+       ));
+       return matches ? decodeURIComponent(matches[1]) : undefined;
+   }
+   
+   function setCookie(name, value, days) {
+       const date = new Date();
+       date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+       const expires = "; expires=" + date.toUTCString();
+       document.cookie = name + "=" + value + expires + "; path=/; SameSite=Strict; Secure";
+   }
+
+   function handleConsent(consent) {
+       setCookie("aprenderd_cookie_consent", consent, 365);
+       cookieConsent.style.transform = "translateX(120%)";
+       
+       setTimeout(() => {
+           cookieConsent.remove();
+       }, 500);
+   }
+
+   acceptBtn.addEventListener("click", () => handleConsent("accepted"));
+   rejectBtn.addEventListener("click", () => handleConsent("rejected"));
+});
+</script>
+';
+
+if (!isset($_COOKIE["aprenderd_cookie_consent"])) {
+    echo $cookieConsentHtml;
+}
+?>
